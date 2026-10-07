@@ -8,11 +8,11 @@
 
 Часть 1:
 javac -encoding UTF-8 -d out src/vehicles/Car.java src/vehicles/ElectricCar.java src/app/Main.java
-java -Dfile.encoding=UTF-8 -cp out app.Main
+java -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -cp out app.Main
 
 Часть 2:
 javac -encoding UTF-8 -d out src/vehicles/Vehicle.java src/vehicles/Car.java src/vehicles/ElectricCar.java src/app/TestCar.java
-java -Dfile.encoding=UTF-8 -cp out app.TestCar
+java -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -cp out app.TestCar
 
 В папке каждой части сохранён результат запуска в файле output.txt.
 Отчёт находится в report.docx.

@@ -12,17 +12,23 @@ public class Car {
         this.engineType = engineType;
     }
 
-    public String getOwnerName() { return ownerName; }
+    public String getOwnerName() {
+        return ownerName;
+    }
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
 
-    public String getInsuranceNumber() { return insuranceNumber; }
+    public String getInsuranceNumber() {
+        return insuranceNumber;
+    }
     public void setInsuranceNumber(String insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
     }
 
-    public String getEngineType() { return engineType; }
+    public String getEngineType() {
+        return engineType;
+    }
     public void setEngineType(String engineType) {
         this.engineType = engineType;
     }

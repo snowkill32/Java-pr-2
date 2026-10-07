@@ -12,17 +12,17 @@ public class ElectricCar extends Car {
         this.batteryCapacity = batteryCapacity;
     }
 
-    public double getBatteryCapacity() { return batteryCapacity; }
+    public double getBatteryCapacity() {
+        return batteryCapacity;
+    }
     public void setBatteryCapacity(double batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
 
-    @Override
     public String vehicleType() {
         return "Electric Car";
     }
 
-    @Override
     public String toString() {
         return super.toString()
                 + "\nАккумулятор: " + batteryCapacity + " кВт·ч";

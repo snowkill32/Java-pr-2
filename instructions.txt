@@ -1,4 +1,4 @@
-Практическая работа №2
+﻿Практическая работа №2
 
 Каждая часть запускается отдельно. Дополнительные библиотеки не нужны.
 Нужен JDK версии 8 или новее. В IntelliJ IDEA можно открыть папку нужной
@@ -14,5 +14,5 @@ java -Dfile.encoding=UTF-8 -cp out app.Main
 javac -encoding UTF-8 -d out src/vehicles/Vehicle.java src/vehicles/Car.java src/vehicles/ElectricCar.java src/app/TestCar.java
 java -Dfile.encoding=UTF-8 -cp out app.TestCar
 
-В папке каждой части сохранён результат запуска в файле Результат.txt.
-Отчёт находится в отдельном файле Word.
+В папке каждой части сохранён результат запуска в файле output.txt.
+Отчёт находится в report.docx.

@@ -1,4 +1,4 @@
-// Часть_1 / src/vehicles/Car.java
+﻿// part1/src/vehicles/Car.java
 
 package vehicles;
 
@@ -31,7 +31,7 @@ public class Car {
 }
 
 
-// Часть_1 / src/vehicles/ElectricCar.java
+// part1/src/vehicles/ElectricCar.java
 
 package vehicles;
 
@@ -52,7 +52,7 @@ public class ElectricCar extends Car {
 }
 
 
-// Часть_1 / src/app/Main.java
+// part1/src/app/Main.java
 
 package app;
 
@@ -89,7 +89,7 @@ public class Main {
 }
 
 
-// Часть_2 / src/vehicles/Vehicle.java
+// part2/src/vehicles/Vehicle.java
 
 package vehicles;
 
@@ -145,7 +145,7 @@ public abstract class Vehicle {
 }
 
 
-// Часть_2 / src/vehicles/Car.java
+// part2/src/vehicles/Car.java
 
 package vehicles;
 
@@ -170,7 +170,7 @@ public class Car extends Vehicle {
 }
 
 
-// Часть_2 / src/vehicles/ElectricCar.java
+// part2/src/vehicles/ElectricCar.java
 
 package vehicles;
 
@@ -204,7 +204,7 @@ public class ElectricCar extends Car {
 }
 
 
-// Часть_2 / src/app/TestCar.java
+// part2/src/app/TestCar.java
 
 package app;
 

@@ -1,0 +1,244 @@
+// Часть_1 / src/vehicles/Car.java
+
+package vehicles;
+
+public class Car {
+    private String ownerName;
+    private String insuranceNumber;
+    protected String engineType;
+
+    public Car(String ownerName, String insuranceNumber,
+               String engineType) {
+        this.ownerName = ownerName;
+        this.insuranceNumber = insuranceNumber;
+        this.engineType = engineType;
+    }
+
+    public String getOwnerName() { return ownerName; }
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public String getInsuranceNumber() { return insuranceNumber; }
+    public void setInsuranceNumber(String insuranceNumber) {
+        this.insuranceNumber = insuranceNumber;
+    }
+
+    public String getEngineType() { return engineType; }
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+}
+
+
+// Часть_1 / src/vehicles/ElectricCar.java
+
+package vehicles;
+
+public class ElectricCar extends Car {
+    private double batteryCapacity;
+
+    public ElectricCar(String ownerName, String insuranceNumber,
+                       double batteryCapacity) {
+        super(ownerName, insuranceNumber, "Electric");
+        engineType = "Electric";
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public double getBatteryCapacity() { return batteryCapacity; }
+    public void setBatteryCapacity(double batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
+}
+
+
+// Часть_1 / src/app/Main.java
+
+package app;
+
+import vehicles.Car;
+import vehicles.ElectricCar;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Иван", "111", "Petrol");
+        car.setOwnerName("Пётр");
+        car.setInsuranceNumber("222");
+        car.setEngineType("Diesel");
+
+        System.out.println("Обычный автомобиль");
+        System.out.println("Владелец: " + car.getOwnerName());
+        System.out.println("Страховка: " + car.getInsuranceNumber());
+        System.out.println("Двигатель: " + car.getEngineType());
+
+        ElectricCar electricCar = new ElectricCar("Анна", "333", 60);
+        electricCar.setOwnerName("Мария");
+        electricCar.setInsuranceNumber("444");
+        electricCar.setBatteryCapacity(75);
+
+        System.out.println("\nЭлектромобиль");
+        System.out.println("Владелец: " + electricCar.getOwnerName());
+        System.out.println("Страховка: " + electricCar.getInsuranceNumber());
+        System.out.println("Двигатель: " + electricCar.getEngineType());
+        System.out.println("Аккумулятор: "
+                + electricCar.getBatteryCapacity() + " кВт·ч");
+
+        // car.ownerName = "Иван"; // private: недоступно из app.
+        // car.engineType = "Petrol"; // protected: недоступно из app.
+    }
+}
+
+
+// Часть_2 / src/vehicles/Vehicle.java
+
+package vehicles;
+
+public abstract class Vehicle {
+    private String model;
+    private String license;
+    private String color;
+    private int year;
+    private String ownerName;
+    private String insuranceNumber;
+    protected String engineType;
+
+    public abstract String vehicleType();
+
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
+
+    public String getLicense() { return license; }
+    public void setLicense(String license) { this.license = license; }
+
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
+
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
+
+    public String getOwnerName() { return ownerName; }
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public String getInsuranceNumber() { return insuranceNumber; }
+    public void setInsuranceNumber(String insuranceNumber) {
+        this.insuranceNumber = insuranceNumber;
+    }
+
+    public String getEngineType() { return engineType; }
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+
+    @Override
+    public String toString() {
+        return vehicleType() + ":"
+                + "\nМодель: " + model
+                + "\nНомер: " + license
+                + "\nЦвет: " + color
+                + "\nГод: " + year
+                + "\nВладелец: " + ownerName
+                + "\nСтраховка: " + insuranceNumber
+                + "\nДвигатель: " + engineType;
+    }
+}
+
+
+// Часть_2 / src/vehicles/Car.java
+
+package vehicles;
+
+public class Car extends Vehicle {
+    public Car(String model, String license, String color, int year,
+               String ownerName, String insuranceNumber,
+               String engineType) {
+        super();
+        setModel(model);
+        setLicense(license);
+        setColor(color);
+        setYear(year);
+        setOwnerName(ownerName);
+        setInsuranceNumber(insuranceNumber);
+        setEngineType(engineType);
+    }
+
+    @Override
+    public String vehicleType() {
+        return "Car";
+    }
+}
+
+
+// Часть_2 / src/vehicles/ElectricCar.java
+
+package vehicles;
+
+public class ElectricCar extends Car {
+    private double batteryCapacity;
+
+    public ElectricCar(String model, String license, String color,
+                       int year, String ownerName,
+                       String insuranceNumber, double batteryCapacity) {
+        super(model, license, color, year, ownerName,
+                insuranceNumber, "Electric");
+        engineType = "Electric";
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public double getBatteryCapacity() { return batteryCapacity; }
+    public void setBatteryCapacity(double batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    @Override
+    public String vehicleType() {
+        return "Electric Car";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()
+                + "\nАккумулятор: " + batteryCapacity + " кВт·ч";
+    }
+}
+
+
+// Часть_2 / src/app/TestCar.java
+
+package app;
+
+import vehicles.Vehicle;
+import vehicles.Car;
+import vehicles.ElectricCar;
+
+public class TestCar {
+    public static void main(String[] args) {
+        Vehicle car = new Car("Lada", "A123AA", "Белый", 2020,
+                "Иван", "111", "Petrol");
+        car.setModel("Lada Vesta");
+        car.setLicense("A456AA");
+        car.setColor("Чёрный");
+        car.setYear(2021);
+        car.setOwnerName("Пётр");
+        car.setInsuranceNumber("222");
+        car.setEngineType("Diesel");
+
+        ElectricCar electricCar = new ElectricCar(
+                "Tesla Model 3", "E123EE", "Красный", 2023,
+                "Анна", "333", 60);
+        electricCar.setColor("Синий");
+        electricCar.setOwnerName("Мария");
+        electricCar.setInsuranceNumber("444");
+        electricCar.setBatteryCapacity(75);
+
+        Vehicle electricVehicle = electricCar;
+        Car electricAsCar = electricCar;
+
+        System.out.println(car.toString());
+        System.out.println();
+        System.out.println(electricVehicle.toString());
+        System.out.println("\nТип через ссылку Car: "
+                + electricAsCar.vehicleType());
+    }
+}
